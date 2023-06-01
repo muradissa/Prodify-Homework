@@ -66,34 +66,9 @@ namespace ProdifyHW.Controllers
             client = _context.Books
              .Where(c => c.BookID == id).FirstOrDefault();
             return client;
-
-        }
-        /*
-        [HttpGet]
-        public List<Book> GetAllAvailableBook()
-        {
-            List<Book> books = _context.Books
-                .Where(c => c.IsAvailable == true)
-                .ToList();
-            return books;
         }
 
-        public List<Book> GetTakenClientBooks(int id)
-        {
-            List<Book> books = _context.Books
-                .Where(c => c.ClientID == id)
-                .ToList();
-            return books;
-        }
-*/
-        [HttpGet]
-        public async Task<IActionResult> GetAllAvailableBook2()
-        {
-            List<Book> books = _context.Books
-                .Where(c => c.IsAvailable == true)
-                .ToList();
-            return View(books);
-        }
+
 
         [HttpGet]
         public async Task<IActionResult> GetAllAvailableBook()
@@ -111,8 +86,9 @@ namespace ProdifyHW.Controllers
                 .Where(c => c.ClientID == id)
                 .ToList();
             return Ok(books);
-            //return books;
         }
+
+
 
         [HttpGet]
         public IActionResult Delete(int Id)
@@ -133,7 +109,6 @@ namespace ProdifyHW.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //[HttpPut("returnbooks/{clientId}")]
 
         public class ReturnBooksRequest
         {
@@ -149,7 +124,7 @@ namespace ProdifyHW.Controllers
                 int clientId = request.ClientId;
                 int[] listOfBooksId = request.ListOfBooksId;
 
-                // Retrieve the client and update the book records
+               
                 Client client = _context.Clients.Find(clientId);
                 if (client == null)
                 {
@@ -164,13 +139,9 @@ namespace ProdifyHW.Controllers
                     {
                         book.ClientID = 0;
                         book.IsAvailable = true;
-                        // Update any other relevant properties
-                        // ...
                     }
                 }
-
                 _context.SaveChanges();
-
                 return Ok("Books returned successfully");
             }
             catch (Exception ex)
@@ -178,6 +149,8 @@ namespace ProdifyHW.Controllers
                 return StatusCode(500, "Error returning books: " + ex.Message);
             }
         }
+
+
         [HttpPut]
         public async Task<IActionResult> TakeBooksFromLibrary([FromBody] ReturnBooksRequest request)
         {
@@ -185,13 +158,12 @@ namespace ProdifyHW.Controllers
             {
                 int clientId = request.ClientId;
                 int[] listOfBooksId = request.ListOfBooksId;
-
                 Client client = _context.Clients.Find(clientId);
+                
                 if (client == null)
                 {
                     return NotFound("Client not found");
                 }
-
                 // Update the books based on the list of book IDs
                 foreach (int bookId in listOfBooksId)
                 {
@@ -200,11 +172,9 @@ namespace ProdifyHW.Controllers
                     {
                         book.ClientID = clientId;
                         book.IsAvailable = false;
-                        // Update any other relevant properties
-                        // ...
+                        
                     }
                 }
-
                 _context.SaveChanges();
 
                 return Ok("Books returned successfully");
