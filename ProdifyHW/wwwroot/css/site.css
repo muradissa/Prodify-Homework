@@ -1,0 +1,109 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+/** **/
+h1 {
+    text-align: center;
+}
+
+.client-info {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin: auto auto;
+}
+/* Add your custom styles here */
+.selected {
+    background-color: rgb(197, 197, 197);
+    border-radius: 5px;
+}
+
+.list-actions {
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    /* margin: auto auto;*/
+}
+
+    .list-actions button {
+        width: 5rem;
+        margin: auto auto;
+    }
+
+.list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(43, 116, 226);
+    border-radius: 1rem;
+    padding: 10px;
+    width: 330px;
+}
+
+    .list h3 {
+        display: block;
+        flex-direction: row;
+        text-align: center;
+    }
+
+.list-body {
+    display: flex;
+    max-width: 1000px;
+    gap: 3rem;
+    margin: auto auto;
+    justify-content: center;
+}
+
+.list ul {
+    height: 300px;
+    padding: 5px;
+    overflow-y: auto;
+}
+
+    .list ul li {
+        list-style: none;
+        font-size: 1.1rem;
+        padding: 5px;
+        margin: 5px;
+    }
+
+.save-btn {
+    display:block;
+    margin: auto auto;
+    justify-content: center;
+    background-color: #006CBA;
+    width:70px;
+    color: #fff;
+    padding: 8px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+    .save-btn:hover {
+        background-color: #008CBA;
+    }
+
+.div-save-btn {
+
+    margin: auto auto;
+    margin-top:3rem;
+    justify-content: center;
+}
