@@ -18,7 +18,7 @@ body {
 }
 
 
-/** **/
+/****/
 h1 {
     text-align: center;
 }
@@ -29,7 +29,6 @@ h1 {
     gap: 5rem;
     margin: auto auto;
 }
-/* Add your custom styles here */
 .selected {
     background-color: rgb(197, 197, 197);
     border-radius: 5px;
@@ -39,13 +38,12 @@ h1 {
     gap: 2rem;
     display: flex;
     flex-direction: column;
-    /* margin: auto auto;*/
 }
 
-    .list-actions button {
-        width: 5rem;
-        margin: auto auto;
-    }
+.list-actions button {
+    width: 5rem;
+    margin: auto auto;
+}
 
 .list {
     display: flex;
@@ -56,11 +54,11 @@ h1 {
     width: 330px;
 }
 
-    .list h3 {
-        display: block;
-        flex-direction: row;
-        text-align: center;
-    }
+.list h3 {
+    display: block;
+    flex-direction: row;
+    text-align: center;
+}
 
 .list-body {
     display: flex;
@@ -76,12 +74,12 @@ h1 {
     overflow-y: auto;
 }
 
-    .list ul li {
-        list-style: none;
-        font-size: 1.1rem;
-        padding: 5px;
-        margin: 5px;
-    }
+.list ul li {
+    list-style: none;
+    font-size: 1.1rem;
+    padding: 5px;
+    margin: 5px;
+}
 
 .save-btn {
     display:block;
@@ -97,12 +95,11 @@ h1 {
     font-size: 1rem;
 }
 
-    .save-btn:hover {
-        background-color: #008CBA;
-    }
+.save-btn:hover {
+    background-color: #008CBA;
+}
 
 .div-save-btn {
-
     margin: auto auto;
     margin-top:3rem;
     justify-content: center;

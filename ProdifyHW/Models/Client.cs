@@ -19,6 +19,5 @@ namespace ProdifyHW.Models
 
         [Column(TypeName = "nvarchar(30)")]
         public string Address { get; set; }
-
     }
 }

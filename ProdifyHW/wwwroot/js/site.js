@@ -34,7 +34,7 @@ $(document).ready(function () {
         }
     });
 
-    // Get All taken Books for X client
+    // Get All taken Books by X client
     $.ajax({
         url: `/Book/GetTakenClientBooks/` + clientId,
         method: 'GET',
@@ -56,6 +56,7 @@ $(document).ready(function () {
         }
     });
 
+    // add and remove selected books from the - left side
     const handleLeftClick = (item) => {
         const newSelected = [...selectedLeft];
         const selectedIndex = selectedLeft.indexOf(item);
@@ -68,8 +69,8 @@ $(document).ready(function () {
         renderList();
     };
 
+    // add and remove selected books from the - right side
     const handleRightClick = (item) => {
-
         const newSelected = [...selectedRight];
         const selectedIndex = selectedRight.indexOf(item);
         if (selectedIndex === -1) {
@@ -81,9 +82,7 @@ $(document).ready(function () {
         renderList();
     };
 
-
-
-
+    // Transfer the selected items from left side to right side - Take
     const handleLeftToRightClick = () => {
         rightItems = [...rightItems, ...selectedLeft];
         leftItems = leftItems.filter(item => !selectedLeft.includes(item));
@@ -92,12 +91,15 @@ $(document).ready(function () {
         renderList();
     };
 
+    // Transfer the selected items from right side to left side - Return
     const handleRightToLeftClick = () => {
         leftItems = [...leftItems, ...selectedRight];
         rightItems = rightItems.filter(item => !selectedRight.includes(item));
         selectedRight = [];
         renderList();
     };
+
+    // save button 
     const handleSaveBtnClick = () => {
         takeBooksFromLibrary()
         returnBooksToLibrary()
@@ -128,7 +130,6 @@ $(document).ready(function () {
             }
         });
     }
-
 
     function returnBooksToLibrary() {
         // Prepare the data to be sent
